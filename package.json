@@ -1,11 +1,11 @@
 {
   "name": "ip",
-  "version": "2.0.1",
+  "version": "2.0.1-lineaje-01",
   "author": "Fedor Indutny <fedor@indutny.com>",
   "homepage": "https://github.com/indutny/node-ip",
   "repository": {
     "type": "git",
-    "url": "http://github.com/indutny/node-ip.git"
+    "url": "https://github.com/lineaje-labs-gos/node-ip"
   },
   "files": [
     "lib",
@@ -21,5 +21,11 @@
     "test": "npm run lint && mocha --reporter spec test/*-test.js",
     "fix": "npm run lint -- --fix"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Lineaje DepFixer",
+      "email": "221268890+Lineaje-DepFixer@users.noreply.github.com"
+    }
+  ]
 }
