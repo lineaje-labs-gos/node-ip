@@ -257,26 +257,25 @@ describe('IP library for node.js', () => {
       assert.equal(ip.normalizeToLong('127.0.0.1'), 2130706433);
     });
 
-    it('should correctly handle "127.1" as two parts', () => {
-      assert.equal(ip.normalizeToLong('127.1'), 2130706433);
+    it('should return -1 for non-strict IPv4 notation "127.1"', () => {
+      assert.equal(ip.normalizeToLong('127.1'), -1);
     });
 
-    it('should correctly handle "127.0.1" as three parts', () => {
-      assert.equal(ip.normalizeToLong('127.0.1'), 2130706433);
+    it('should return -1 for non-strict IPv4 notation "127.0.1"', () => {
+      assert.equal(ip.normalizeToLong('127.0.1'), -1);
     });
 
-
-    it('should correctly handle hexadecimal notation "0x7f.0x0.0x0.0x1"', () => {
-      assert.equal(ip.normalizeToLong('0x7f.0x0.0x0.0x1'), 2130706433);
+    it('should return -1 for hexadecimal notation "0x7f.0x0.0x0.0x1"', () => {
+      assert.equal(ip.normalizeToLong('0x7f.0x0.0x0.0x1'), -1);
     });
 
     // Testing with fewer than 4 parts
-    it('should correctly handle "0x7f000001" as a single part', () => {
-      assert.equal(ip.normalizeToLong('0x7f000001'), 2130706433);
+    it('should return -1 for single-part hexadecimal "0x7f000001"', () => {
+      assert.equal(ip.normalizeToLong('0x7f000001'), -1);
     });
 
-    it('should correctly handle octal notation "010.0.0.01"', () => {
-      assert.equal(ip.normalizeToLong('010.0.0.01'), 134217729);
+    it('should return -1 for octal notation "010.0.0.01"', () => {
+      assert.equal(ip.normalizeToLong('010.0.0.01'), -1);
     });
 
     // Testing invalid inputs
